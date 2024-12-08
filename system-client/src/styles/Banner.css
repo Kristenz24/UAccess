@@ -1,0 +1,50 @@
+section.banner-container {
+    width: 100vw;
+    height: 100dvh;
+    background-image: url('../../public/UA-BG.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 15rem 0 0 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    overflow: hidden;
+}
+
+section.banner-container > div.banner-text {
+    color: #fff;
+}
+
+section.banner-container > div.banner-text > h1 {
+    font-size: 48px;
+    font-weight: var(--fw-regular);
+}
+
+section.banner-container > div.banner-text > P {
+    font-size: 24px;
+    font-weight: var(--fw-light);
+}
+
+section.banner-container > div.banner-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+section.banner-container > div.banner-buttons > button {
+    width: 180px;
+    height: 60px;
+    border-radius: 10px;
+}
+
+section.banner-container > div.banner-buttons > button:nth-child(1) {
+    background-color: #002366;
+    color: #fff;
+    border: none;
+}
+
+section.banner-container > div.banner-buttons > button:nth-child(2) {
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+}
+

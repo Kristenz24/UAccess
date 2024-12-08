@@ -1,0 +1,8 @@
+# Backend
+system-be/node_modules/
+system-be/.env
+
+# Frontend
+system-client/node_modules/
+
+

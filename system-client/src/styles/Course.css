@@ -1,0 +1,32 @@
+div.course-container{
+    padding-inline: 100px;
+    padding-block: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+div.course-container> header{
+    border-bottom: 1px solid var(--clr-blue);
+}
+
+div.course-container> header > h1 {
+    font-size: 24px;
+    font-weight: var(--fw-bold);
+    color: var(--clr-blue);
+}
+
+section.course-card-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.1rem;
+}
+section.course-card-container > * {
+    transition: 0.3s;
+}
+
+
+section.course-card-container:hover > *:not(:hover){
+    transform: scale(.99);
+    opacity: .8;
+}
