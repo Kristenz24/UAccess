@@ -41,11 +41,7 @@ cd ..
 ```
 
 ## Setting up Environmental Variables
-- Traverse to the system-be and create a new file named ```.env```
-
-```bash
-cd system-be
-```
+- Go to the system-be and create a new file named ```.env```
 
 - Go to the ```.env``` file you created and paste this:
 ```bash
