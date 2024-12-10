@@ -1,0 +1,113 @@
+div.details-container {
+    display             : flex;
+    flex-direction      : column;
+    gap                 : 3rem;
+    height              : 100dvh;
+    padding-block       : 3rem;
+    padding-inline      : 100px;
+    width               : 100%;
+}
+
+header.details-header {
+    border-bottom       : 1px solid var(--clr-blue);
+}
+
+header.details-header > h1 {
+    color               : var(--clr-blue);
+    font-size           : 24px;
+    font-weight         : var(--fw-bold);
+}
+
+div.details-container > section {
+    align-self          : center;
+    background-color    : #fff;
+    box-shadow          : 10px 10px 23px -3px rgba(0, 0, 0, 0.2);
+    border-radius       : 10px;
+    display             : flex;
+    gap                 : 1rem;
+    height              : 70dvh;
+    max-width           : 1200px;
+    overflow            : hidden;
+    width               : 100%;
+}
+
+/* left section*/
+div.details-container > section > div.details-img {
+    height              : 100%;
+    width               : 40%;
+}
+
+div.details-container > section > div.details-img > img {
+    height              : 100%;
+    object-fit          : cover;
+    width               : 100%;
+}
+
+/* right section*/
+div.details-container > section > div.details-content {
+    height              : 600px;
+    width               : 100%;
+}
+
+div.details-content {
+    padding             : 3rem;
+}
+
+div.details-content > p.details-content-header {
+    color               : var(--clr-blue);
+    font-size           : 18px;
+    font-weight         : var(--fw-bold);
+}
+
+div.buttons-container {
+    display             : flex;
+    gap                 : 1rem 1.3rem;
+    margin-top          : 1.5rem;
+}
+
+div.buttons-container > a {
+    align-items         : center;
+    border              : none;
+    border-radius       : .5rem;
+    display             : flex;
+    gap                 : 1rem;
+    justify-content     : center;
+    padding             : 1rem 2rem;
+    text-decoration     : none;
+}
+
+div.buttons-container > a:nth-child(1) {
+    background-color    : #CE2029;
+    color               : #fff;
+    cursor              : pointer;
+}
+
+div.buttons-container > a:nth-child(2) {
+    background-color    : #022366;
+    color               : #fff;
+    cursor              : pointer;
+}
+
+div.buttons-container > a:nth-child(1):hover {
+    background-color    : #A81924;
+    color               : #fff;
+}
+
+div.buttons-container > a:nth-child(2):hover {
+    background-color    : #011A4D;
+    color               : #fff;
+}
+
+/* Responsive */
+@media only screen and (max-width: 1000px) {
+    div.details-container > section > div.details-img {
+        display         : none;
+    }
+
+    div.buttons-container {
+        display         : flex;
+        flex-direction  : column;
+        gap             : 1rem 1.3rem;
+        margin-top      : 1.5rem;
+    }
+}

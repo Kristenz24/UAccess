@@ -1,14 +1,19 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, useContext } from "react"
+import { Link, Navigate } from "react-router-dom";
+import UserContext from "../UserContext";
 
-import '../styles/Details.css'
+import useDisableScrollbar from "../utils/useDisableScrollbar";
+
+import '../styles/Profile.css'
 
 export default function Details() {
-
     const [email, setEmail]             = useState("")
     const [firstName, setFirstName]     = useState("");
     const [middleName, setMiddleName]   = useState("");
     const [lastName, setLastName]       = useState("");
     const [isAdmin, setIsAdmin]         = useState(false);
+
+    const { user } = useContext(UserContext);
 
     const fetchDetails = () => {
         fetch('http://localhost:4000/users/details', {
@@ -18,25 +23,24 @@ export default function Details() {
         .then(result => result.json())
         .then(data => {
             if (data.code === "USER-FOUND") {
-                console.log(data)
-                // console.log(data.code)
-                // console.log(data.result._id)
                 setEmail(data.result.email);
                 setFirstName(data.result.firstName);
                 setMiddleName(data.result.middleName);
                 setLastName(data.result.lastName);
                 setIsAdmin(data.result.isAdmin);
-            } else {
-
-            }
+            } 
         })
     }
 
     useEffect(() => {
         fetchDetails();
-    },[])
+    }, [])
+
+    useDisableScrollbar();
 
     return(
+        user.id === null ? < Navigate to="/" /> :
+
         <div className="details-container">
             <header className="details-header">
                 <h1>Your Profile</h1>
@@ -62,6 +66,11 @@ export default function Details() {
 
                     <p className='details-content-header'>Admin rights</p>
                     {isAdmin ? <p>Admin</p> : <p>Not admin</p>}
+
+                    <div className='buttons-container'>
+                        <Link to='/logout'> <i className="fa-solid fa-right-from-bracket"></i> Logout </Link>
+                        <Link to='/change-password'> <i className="fa-solid fa-pen"></i> Change password</Link>
+                    </div>
                 </div>
             </section>
         </div>

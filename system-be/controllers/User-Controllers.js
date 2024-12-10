@@ -120,3 +120,79 @@ module.exports.enroll = (req, res) => {
         }
     })
 }
+
+
+// module.exports.changeUserPassword = (req, res) => {
+//     const { id } = req.params;
+//     const { newPassword } = req.body;
+
+//     try {
+//         const hashedPassword =  bcryptjs.hashSync(newPassword, 10);
+//         const updatePassword = {password: hashedPassword};
+
+//         const result = User.findByIdAndUpdate(id, updatePassword, { new:true });
+
+//         return res.json({
+//             code: "PASSWORD-UPDATED-SUCCESSFULLY",
+//             message: "Your password has been updated successfully",
+//             result: result
+//         })
+
+
+//     } catch (error) {
+//         return res.json({
+//             code: "PASSWORD-UPDATE-FAILED",
+//             message: "Cannot update password"
+//         })
+//     }
+// } 
+
+module.exports.changeUserPassword = (req, res) => {
+    const { id } = req.user; 
+    const { newPassword, confirmNewPassword } = req.body;
+    console.log(newPassword, confirmNewPassword)
+
+    // Check if newPassword and confirmNewPassword are provided
+    if (!newPassword || !confirmNewPassword) {
+        return res.status(400).json({
+            code: "PASSWORD-UPDATE-FAILED",
+            message: "Both new password and confirmation are required.",
+        });
+    }
+
+    // Check if the passwords match
+    if (newPassword !== confirmNewPassword) {
+        return res.status(400).json({
+            code: "PASSWORD-MISMATCH",
+            message: "The new password and confirmation do not match.",
+        });
+    }
+
+    // Hash the new password
+    const hashedPassword = bcryptjs.hashSync(newPassword, 10);
+
+    // Update the password in the database
+    return User.findByIdAndUpdate(id, { password: hashedPassword }, { new: true })
+        .then((result) => {
+            if (!result) {
+                return res.status(404).json({
+                    code: "USER-NOT-FOUND",
+                    message: "User not found. Cannot update password.",
+                });
+            }
+
+            return res.status(200).json({
+                code: "PASSWORD-UPDATED-SUCCESSFULLY",
+                message: "Your password has been updated successfully.",
+                result: result,
+            });
+        })
+        .catch((error) => {
+            console.error(error);
+            return res.status(500).json({
+                code: "PASSWORD-UPDATE-FAILED",
+                message: "An error occurred while updating your password. Please try again.",
+                error: error.message,
+            });
+        });
+};

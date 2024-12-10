@@ -20,4 +20,7 @@ router.post("/details", verify, userController.getProfile);
 // Get user details
 router.post("/enroll", verify, userController.enroll);
 
+// Change user password
+router.put('/change-password', verify, userController.changeUserPassword)
+
 module.exports = router;

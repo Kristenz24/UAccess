@@ -1,21 +1,19 @@
-div.error-page-container{
-    width: 100%;
-    height: 100dvh;
-    display: flex;
-    padding-top: 5rem;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
+div.error-page-container {
+    align-items         : center;
+    display             : flex;
+    flex-direction      : column;
+    gap                 : 2rem;
+    height              : 100dvh;
+    padding-top         : 5rem;
+    width               : 100%;
 }
 
 div.error-page-container > img {
-    width: 30%;
-    max-width: 200px;
+    max-width           : 200px;
+    width               : 30%;
 }
 
 div.error-page-container > h1 {
-    font-size: 3rem;
-    color: #AAA;
+    color               : #AAA;
+    font-size           : 3rem;
 }
-
-

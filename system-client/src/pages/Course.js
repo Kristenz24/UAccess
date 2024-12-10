@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import CourseCard from "../components/CourseCard";
-import '../styles/Course.css'
 
+import '../styles/Course.css'
 
 export default function Course() {
     const [courses, setCourses] = useState([]);
@@ -26,10 +26,9 @@ export default function Course() {
             }
         })
     }
-
     console.log(courses);
 
-    useEffect(()=>{
+    useEffect(() => {
         fetchCourses();
     }, [])
 

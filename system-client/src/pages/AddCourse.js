@@ -1,10 +1,11 @@
-import { useEffect, useState, useContext} from "react"
+import { useState, useContext, useEffect } from "react"
+import { Navigate } from "react-router-dom";
+import UserContext from "../UserContext";
 import Swal from "sweetalert2";
 
-import '../styles/AddCourse.css'
+import useDisableScrollbar from "../utils/useDisableScrollbar";
 
-import UserContext from "../UserContext";
-import { Navigate } from "react-router-dom";
+import '../styles/AddCourse.css'
 
 export default function AddCourse() {
     const [imgLink, setImgLink]             = useState("");
@@ -13,8 +14,7 @@ export default function AddCourse() {
     const [price, setPrice]                 = useState("");
     const [img, setImg]                     = useState("");
 
-    const { user, setUser } = useContext(UserContext);
-
+    const { user } = useContext(UserContext);
 
     function addCourse(e) {
         e.preventDefault();
@@ -51,8 +51,11 @@ export default function AddCourse() {
         })
     }
 
+    useDisableScrollbar();
+
     return(
-        user.isAdmin === null ?  <Navigate to="/"/> :
+        user.isAdmin === null ? <Navigate to="/"/> :
+
         <div className="add-course-container">
             <header className="add-course-header">
                 <h1>Add New Course</h1>
@@ -103,9 +106,7 @@ export default function AddCourse() {
 					/>
 
                     <button type="submit">Add Course</button>
-
                 </form>
-
             </section>
         </div>
     )

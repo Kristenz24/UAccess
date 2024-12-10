@@ -1,50 +1,49 @@
 section.banner-container {
-    width: 100vw;
-    height: 100dvh;
-    background-image: url('../../public/UA-BG.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding: 15rem 0 0 100px;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    overflow: hidden;
+    background-image            : url('../../public/UA-BG.png');
+    background-repeat           : no-repeat;
+    background-size             : cover;
+    display                     : flex;
+    flex-direction              : column;
+    gap                         : 30px;
+    height                      : 100dvh;
+    overflow                    : hidden;
+    padding                     : 15rem 0 0 100px;
+    width                       : 100%;
 }
 
 section.banner-container > div.banner-text {
-    color: #fff;
+    color                       : #fff;
 }
 
 section.banner-container > div.banner-text > h1 {
-    font-size: 48px;
-    font-weight: var(--fw-regular);
+    font-size                   : 48px;
+    font-weight                 : var(--fw-regular);
 }
 
-section.banner-container > div.banner-text > P {
-    font-size: 24px;
-    font-weight: var(--fw-light);
+section.banner-container > div.banner-text > p {
+    font-size                   : 24px;
+    font-weight                 : var(--fw-light);
 }
 
 section.banner-container > div.banner-buttons {
-    display: flex;
-    gap: 10px;
+    display                     : flex;
+    gap                         : 10px;
 }
 
 section.banner-container > div.banner-buttons > button {
-    width: 180px;
-    height: 60px;
-    border-radius: 10px;
+    border-radius               : 10px;
+    height                      : 60px;
+    width                       : 180px;
 }
 
 section.banner-container > div.banner-buttons > button:nth-child(1) {
-    background-color: #002366;
-    color: #fff;
-    border: none;
+    background-color            : #002366;
+    border                      : none;
+    color                       : #fff;
 }
 
 section.banner-container > div.banner-buttons > button:nth-child(2) {
-    background-color: transparent;
-    color: #fff;
-    border: 1px solid #fff;
+    background-color            : transparent;
+    border                      : 1px solid #fff;
+    color                       : #fff;
 }
-

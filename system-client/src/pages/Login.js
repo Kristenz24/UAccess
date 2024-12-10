@@ -1,16 +1,18 @@
-import '../styles/Login.css'
-
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import Swal from "sweetalert2";
 import UserContext from "../UserContext";
 import { Navigate } from "react-router-dom";
 
+import useDisableScrollbar from "../utils/useDisableScrollbar";
+
+
+import '../styles/Login.css'
+
 export default function Login() {
-
-	const { user, setUser } = useContext(UserContext);
-
 	let [email, setEmail] = useState("");
 	let [password, setPassword] = useState("");
+
+	const { user, setUser } = useContext(UserContext);
 
 	function loginUser(e) {
 		e.preventDefault();
@@ -31,10 +33,12 @@ export default function Login() {
 					text: "You can now use our enrollment system",
 					icon: "success"
 				})
-				if(typeof result.token !== 'undefined'){
+
+				if(typeof result.token !== 'undefined') {
 					localStorage.setItem('token', result.token);
 					retrieveUserDetails(result.token);
 				}
+
 			} else if (result.code === 'USER-NOT-REGISTERED') {
 				Swal.fire({
 					title: "YOU ARE NOT REGISTERED",
@@ -67,40 +71,43 @@ export default function Login() {
 			})
 		})
 	}
+
+	useDisableScrollbar();
       
 	return(
-		user.id !== null ?
-			<Navigate to="/"/>
-			:
-			<div className='login-container'>
-				<section className='left-section'>
-					<img src='UA-BG.png'/>
-				</section>
+		user.id !== null ? <Navigate to="/"/> :
+		
+		<div className='login-container'>
+			<section className='left-section'>
+				<img src='UA-BG.png'/>
+			</section>
 
-				<section className='right-section'>
-					<h1>Login</h1>
+			<section className='right-section'>
+				<h1>Login</h1>
 
-					<form className='login-form' onSubmit={e => loginUser(e)}>
-						
-						<input 
-							type='email' 
-							placeholder="Email address" 
-							onChange={(e) => setEmail(e.target.value)} 
-							value={email} 
-							required
-						/>
+				<form className='login-form' onSubmit={e => loginUser(e)}>
+					
+					<input 
+						type='email' 
+						placeholder="Email address" 
+						onChange={(e) => setEmail(e.target.value)} 
+						value={email} 
+						required
+						maxLength={50}
+					/>
 
-						<input 
-							type='password' 
-							placeholder="Password" 
-							onChange={(e) => setPassword(e.target.value)} 
-							value={password} 
-							required
-						/>
+					<input 
+						type='password' 
+						placeholder="Password" 
+						onChange={(e) => setPassword(e.target.value)} 
+						value={password} 
+						required
+						maxLength={50}
+					/>
 
-						<button type="submit">Login</button>
-					</form>
-				</section>
-			</div>
+					<button type="submit">Login</button>
+				</form>
+			</section>
+		</div>
 	)
 };

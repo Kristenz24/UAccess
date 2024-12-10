@@ -12,13 +12,15 @@ export default function AppNavbar(){
     return(
          <Navbar expand="lg" className="bg-body-tertiary sticky-top shadow">
             <Container fluid className='d-flex justify-content-between' style={{marginLeft: '100px', marginRight: '100px'}}>
-                <Navbar.Brand href="/">
-                    <img
-                        src="./UA-Logo.png"
-                        className="img-fluid"
-                        style={{ maxWidth: '300px', maxHeight: '70px' }}
-                        alt="UA Logo"
-                    />
+                <Navbar.Brand>
+                    <Link to='/'>
+                        <img
+                            src="./UA-Logo.png"
+                            className="img-fluid"
+                            style={{ maxWidth: '300px', maxHeight: '70px' }}
+                            alt="UA Logo"
+                        />
+                    </Link>
                 </Navbar.Brand>
 
                 <Navbar.Toggle
@@ -38,9 +40,29 @@ export default function AppNavbar(){
                         {user.id !== null ?
                             user.isAdmin ? 
                                 <>
-                                    <Nav.Link as={Link} to="/add-course">Add Course</Nav.Link>
-                                    <Nav.Link as={Link} to="/logout">Logout</Nav.Link>
-                                    
+                                    <Nav.Link as={Link} to="/add-course">Add course</Nav.Link>
+                                    {/* <Nav.Link as={Link} to="/logout">Logout</Nav.Link> */}
+
+                                    {/* Larger Screen Size */}
+                                    {/* <Nav.Link as={Link} to="/logout" className="d-none d-lg-block text-center"
+                                    style={{
+                                        backgroundColor: '#CE2029',
+                                        color: 'white',
+                                        width: '120px',
+                                        height: '50px',
+                                        fontSize: '14px',
+                                        lineHeight: '32px',
+                                        borderRadius: '5px',
+                                        fontWeight: 400,
+                                        textDecoration: 'none',
+                                    }}> Logout </Nav.Link> */}
+
+                                    {/* Smaller Screen Size */}
+                                    {/* <Nav.Link as={Link} to="/logout" className="d-block d-lg-none"> Logout </Nav.Link> */}
+
+
+
+                
                                     {/* Larger Screen Size */}
                                     <Nav.Link as={Link} to="/details" className='d-none d-lg-block'>
                                         <i className="fa-regular fa-user"></i>
@@ -53,7 +75,24 @@ export default function AppNavbar(){
                                 </> 
                                 : 
                                 <>
-                                    <Nav.Link as={Link} to="/logout">Logout</Nav.Link>
+                                    {/* Larger Screen Size */}
+                                    {/* <Nav.Link as={Link} to="/logout" className="d-none d-lg-block text-center"
+                                    style={{
+                                        backgroundColor: '#CE2029',
+                                        color: 'white',
+                                        width: '120px',
+                                        height: '50px',
+                                        fontSize: '14px',
+                                        lineHeight: '32px',
+                                        borderRadius: '5px',
+                                        fontWeight: 400,
+                                        textDecoration: 'none',
+                                    }}> Logout </Nav.Link> */}
+
+                                    {/* Smaller Screen Size */}
+                                    {/* <Nav.Link as={Link} to="/logout" className="d-block d-lg-none"> Logout </Nav.Link> */}
+
+
                                     {/* Larger Screen Size */}
                                     <Nav.Link as={Link} to="/details" className='d-none d-lg-block'>
                                         <i className="fa-regular fa-user"></i>

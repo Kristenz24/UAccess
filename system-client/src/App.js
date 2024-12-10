@@ -2,6 +2,7 @@ import './styles/App.css';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from 'react';
 
+
 // Components
 import AppNavbar from './components/AppNavbar'
 import CourseCard from './components/CourseCard'
@@ -9,8 +10,9 @@ import CourseCard from './components/CourseCard'
 // Pages
 import AddCourse from './pages/AddCourse'
 import Banner from './pages/Banner'
+import ChangePassword from "./pages/ChangePassword"
 import Course from './pages/Course'
-import Details from './pages/Details'
+import Profile from './pages/Profile'
 import ErrorPage from './pages/ErrorPage'
 import Login from './pages/Login'
 import Logout from './pages/Logout'
@@ -60,12 +62,13 @@ export default function App() {
               <AppNavbar/>
               <Routes>
                 <Route path='/' element={<Banner/>}/>
+                <Route path='/change-password' element={<ChangePassword/>}/>
                 <Route path='/login' element={<Login/>}/>
                 <Route path='/register' element={<Register/>}/>
                 <Route path='/logout' element={<Logout/>}/>
                 <Route path='/courses' element={<Course/>}/>
                 <Route path='/add-course' element={<AddCourse/>}/>
-                <Route path='/details' element={<Details/>}/>
+                <Route path='/details' element={<Profile/>}/>
                 <Route path='*' element={<ErrorPage/>}/>
               </Routes>
             </main>

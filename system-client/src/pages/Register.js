@@ -1,20 +1,21 @@
-import { useState, useContext } from "react";
-import { Container, Row, Col, Button, Form } from "react-bootstrap";
-import Swal from "sweetalert2";
-import UserContext from "../UserContext";
+import { useState, useContext, useEffect } from "react";
 import { Navigate } from "react-router-dom";
+import UserContext from "../UserContext";
+import Swal from "sweetalert2";
+
+import useDisableScrollbar from "../utils/useDisableScrollbar";
+
 import '../styles/Register.css'
 
-
 export default function Register() {
-    const {user} = useContext(UserContext);
-
     let [firstName, setFirstName]           = useState("");
     let [middleName, setMiddleName]         = useState("");
     let [lastName, setLastName]             = useState("");
     let [email, setEmail]                   = useState("");
     let [contactNumber, setContactNumber]   = useState("");
     let [password, setPassword]             = useState("");
+    
+    const {user} = useContext(UserContext);
 
     function register(e) {
         e.preventDefault();
@@ -33,7 +34,7 @@ export default function Register() {
         })
         .then(result => result.json())
         .then(result => {
-            if(result.code === "REGISTRATION-SUCCESS"){
+            if(result.code === "REGISTRATION-SUCCESS") {
                 Swal.fire({
                     title: "SUCCESS!",
                     text: result.message,
@@ -45,7 +46,7 @@ export default function Register() {
                 setEmail("");
                 setContactNumber("");
                 setPassword("");
-            }else{
+            } else {
                 Swal.fire({
                     title: "SOMETHING WENT WRONG!",
                     text: "Please try again",
@@ -55,70 +56,77 @@ export default function Register() {
         })
     }
 
+    useDisableScrollbar();
+
     return (
-        user.id !== null ?
-            <Navigate to="/"/>
-            :
-            <div className="register-container">
-                <section className="left-section">
-                    <img src='UA-BG.png'/>
-                </section>
+        user.id !== null ? <Navigate to="/"/> :
+        
+        <div className="register-container">
+            <section className="left-section">
+                <img src='UA-BG.png'/>
+            </section>
 
-                <section className="right-section">
-                    <h1>Register</h1>
+            <section className="right-section">
+                <h1>Register</h1>
 
-                    <form className="register-form" onSubmit={e => register(e)}>
-                        <input 
-                            type='text' 
-                            placeholder="First name" 
-                            onChange={(e) => setFirstName(e.target.value)} 
-                            value={firstName} 
-                            required
-                        />
+                <form className="register-form" onSubmit={e => register(e)}>
+                    <input 
+                        type='text' 
+                        placeholder="First name" 
+                        onChange={(e) => setFirstName(e.target.value)} 
+                        value={firstName} 
+                        required
+                        maxLength={50}
+                    />
 
-                        <input 
-                            type='text' 
-                            placeholder="Middle name" 
-                            onChange={(e) => setMiddleName(e.target.value)} 
-                            value={middleName} 
-                            required
-                        />
+                    <input 
+                        type='text' 
+                        placeholder="Middle name" 
+                        onChange={(e) => setMiddleName(e.target.value)} 
+                        value={middleName} 
+                        required
+                        maxLength={50}
+                    />
 
-                        <input 
-                            type='text' 
-                            placeholder="Last name" 
-                            onChange={(e) => setLastName(e.target.value)} 
-                            value={lastName} 
-                            required
-                        />
+                    <input 
+                        type='text' 
+                        placeholder="Last name" 
+                        onChange={(e) => setLastName(e.target.value)} 
+                        value={lastName} 
+                        required
+                        maxLength={50}
+                    />
 
-                        <input 
-                            type='email' 
-                            placeholder="Email address" 
-                            onChange={(e) => setEmail(e.target.value)} 
-                            value={email} 
-                            required
-                        />
+                    <input 
+                        type='email' 
+                        placeholder="Email address" 
+                        onChange={(e) => setEmail(e.target.value)} 
+                        value={email} 
+                        required
+                        maxLength={50}
+                    />
 
-                        <input 
-                            type='number' 
-                            placeholder="Contact number" 
-                            onChange={(e) => setContactNumber(e.target.value)} 
-                            value={contactNumber} 
-                            required
-                        />
+                    <input 
+                        type='number' 
+                        placeholder="Contact number" 
+                        onChange={(e) => setContactNumber(e.target.value)} 
+                        value={contactNumber} 
+                        required
+                        maxLength={50}
+                    />
 
-                        <input 
-                            type='password' 
-                            placeholder="Password" 
-                            onChange={(e) => setPassword(e.target.value)} 
-                            value={password} 
-                            required
-                        />
+                    <input 
+                        type='password' 
+                        placeholder="Password" 
+                        onChange={(e) => setPassword(e.target.value)} 
+                        value={password} 
+                        required
+                        maxLength={50}
+                    />
 
-                        <button type="submit">Register</button>
-                    </form>
-                </section>
-            </div>
+                    <button type="submit">Register</button>
+                </form>
+            </section>
+        </div>
       )
 };
