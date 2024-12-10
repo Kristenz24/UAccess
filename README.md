@@ -49,7 +49,7 @@ PORT=4000
 MONGODB_STRING=""
 JWT_SECRET_KEY="MWDBESECRET"
 ```
-> NOTE : You must use your own MongoDB SRV String for it to work.
+> NOTE : You must use your own MongoDB SRV Link for it to work.
 
 ## Running The Project
 - To run the backend. traverse to ```system-be``` and run ```npm run dev``` 
