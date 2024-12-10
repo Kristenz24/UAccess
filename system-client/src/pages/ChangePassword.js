@@ -30,7 +30,7 @@ export default function ChangePassword() {
             })
         })
         .then(result=>result.json())
-        .then(data=>{
+        .then(data => {
             if(data.code === 'PASSWORD-UPDATED-SUCCESSFULLY'){
                 Swal.fire({
                     title: "PASSWORD UPDATED SUCCESSFULLY!",
@@ -40,7 +40,38 @@ export default function ChangePassword() {
                 setNewPassword('')
                 setConfirmNewPassword('')
                 
-            } else {
+            }  
+
+            // if one of the password fields are empty
+            else if (data.code === 'PASSWORD-UPDATE-FAILED') {
+                Swal.fire({
+                    title: "PASSWORD UPDATE FAILED!",
+                    text: data.message,
+                    icon: "error"
+                })
+                setNewPassword('')
+                setConfirmNewPassword('')
+            }
+
+            // if both the new password and confirm new password field don't match
+            else if (data.code === 'PASSWORD-MISMATCH') {
+                Swal.fire({
+                    title: "PASSWORD MISMATCH!",
+                    text: data.message,
+                    icon: "error"
+                })
+            }
+
+            // if the passwords field reaches the intended character limit
+            else if (data.code === 'PASSWORD-LIMIT') {
+                Swal.fire({
+                    title: "PASSWORD LIMIT!",
+                    text: data.message,
+                    icon: "error"
+                })
+            }
+            
+            else {
                 Swal.fire({
                     title: "SOMETHING WENT WRONG!",
                     text: "Please try again!",

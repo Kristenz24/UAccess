@@ -153,18 +153,27 @@ module.exports.changeUserPassword = (req, res) => {
     console.log(newPassword, confirmNewPassword)
 
     // Check if newPassword and confirmNewPassword are provided
-    if (!newPassword || !confirmNewPassword) {
+    if (!newPassword || !confirmNewPassword || newPassword.trim() === '' || confirmNewPassword.trim() === '') {
         return res.status(400).json({
             code: "PASSWORD-UPDATE-FAILED",
             message: "Both new password and confirmation are required.",
         });
     }
 
+
     // Check if the passwords match
     if (newPassword !== confirmNewPassword) {
         return res.status(400).json({
             code: "PASSWORD-MISMATCH",
             message: "The new password and confirmation do not match.",
+        });
+    }
+
+    // Check if the passwords exceed the character limit
+    if (newPassword.length > 50 || confirmNewPassword.length > 50) {
+        return res.status(400).json({
+            code: "PASSWORD-LIMIT",
+            message: "The password exceeds the character limit",
         });
     }
 
