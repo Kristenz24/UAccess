@@ -1,6 +1,6 @@
 # UAccess: UA Enrollment System
 
-***UAccess*** was one my simple final project in my third year. This web application performs simple CRUD operations. It was designed to manage and access user data efficiently.
+***UAccess*** was one of my simple final projects in my third year. This web application performs basic CRUD operations and is designed to efficiently manage and access user data.
 
 ## Obtaining a Copy
 - Fork the repository and clone it to your local machine or download the project as ZIP.
