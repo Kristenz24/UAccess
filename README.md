@@ -1,11 +1,13 @@
-# UAccess: UA Enrollment System
+<img src='./system-client/public/Homepage.png' width='100%'>
+
+# ⭐ UAccess: UA Enrollment System
 
 ***UAccess*** was one of my simple final projects in my third year. This web application performs basic CRUD operations and is designed to efficiently manage and access user data.
 
-## Obtaining a Copy
+## 🗃️ Obtaining a Copy
 - Fork the repository and clone it to your local machine or download the project as ZIP.
 
-## Installing the Dependencies
+## 📦 Installing the Dependencies
 ### Installing the dependencies on the ``backend``:
 
 - Traverse to the system-be (backend) directory
@@ -40,7 +42,7 @@ npm install
 cd ..
 ```
 
-## Setting up Environmental Variables
+## 📁 Setting up Environmental Variables
 - Go to the system-be and create a new file named ```.env```
 
 - Go to the ```.env``` file you created and paste this:
@@ -51,7 +53,7 @@ JWT_SECRET_KEY="MWDBESECRET"
 ```
 > NOTE : You must use your own MongoDB SRV Link for it to work.
 
-## Running The Project
+## 💻 Running The Project
 - To run the backend. traverse to ```system-be``` and run ```npm run dev``` 
 ```bash
 npm run dev
