@@ -21,7 +21,7 @@ header.details-header > h1 {
 div.details-container > section {
     align-self          : center;
     background-color    : #fff;
-    box-shadow          : 10px 10px 23px -3px rgba(0, 0, 0, 0.2);
+    box-shadow          : 10px 10px 38px -2px rgba(0,0,0,0.08);
     border-radius       : 10px;
     display             : flex;
     gap                 : 1rem;
