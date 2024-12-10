@@ -16,6 +16,7 @@ section.left-section {
 }
 
 section.left-section > img {
+    border-radius       : 10px;
     height              : 100%;
     object-fit          : cover;
     width               : 100%;

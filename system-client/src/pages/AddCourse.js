@@ -51,8 +51,6 @@ export default function AddCourse() {
         })
     }
 
-    useDisableScrollbar();
-
     return(
         user.isAdmin === null ? <Navigate to="/"/> :
 
