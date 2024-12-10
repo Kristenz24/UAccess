@@ -1,8 +1,22 @@
 # Backend
 system-be/node_modules/
 system-be/.env
+system-be/npm-debug.log*
+system-be/yarn-debug.log*
+system-be/yarn-error.log*
 
 # Frontend
 system-client/node_modules/
+system-client/build/
+system-client/npm-debug.log*
+system-client/yarn-debug.log*
+system-client/yarn-error.log*
+
+# General
+.DS_Store
+.pnp
+.pnp.js
+coverage/
+
 
 
