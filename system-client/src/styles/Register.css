@@ -2,10 +2,10 @@ div.register-container {
     display             : flex;
     height              : 100dvh;
     justify-content     : center;
+    max-width           : 1500px;
     padding             : 2rem;
     width               : 100%;
-
-    align-self: center;
+    align-self          : center;
 }
 
 /* left section */

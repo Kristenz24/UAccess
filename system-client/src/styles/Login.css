@@ -5,7 +5,7 @@ div.login-container {
     max-width           : 1500px;
     padding             : 2rem;
     width               : 100%;
-    align-self: center;
+    align-self          : center;
 }
 
 form.login-form {
